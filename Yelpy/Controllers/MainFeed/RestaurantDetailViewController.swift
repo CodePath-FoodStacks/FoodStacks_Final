@@ -10,6 +10,7 @@ import UIKit
 import AlamofireImage
 import MapKit
 
+// NOTE: Once you go through the lab this error will dissapear
 class RestaurantDetailViewController: UIViewController, MKMapViewDelegate, PostImageViewControllerDelegate {
     
 
@@ -19,14 +20,33 @@ class RestaurantDetailViewController: UIViewController, MKMapViewDelegate, PostI
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var starImage: UIImageView!
     @IBOutlet weak var reviewsLabel: UILabel!
+    @IBOutlet weak var newRes: UILabel!
+    
+    
+    // LAB 6: Connect MapView + Add annotation view
     @IBOutlet weak var mapView: MKMapView!
+    var annotationView: MKAnnotationView!
     
     // Initialize restaurant variable
     var r: Restaurant!
-    var annotationView: MKAnnotationView!
+    
         
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
+        let latitude = r.coordinates["latitude"]!
+        let longitude = r.coordinates["longitude"]!
+
+        // 2) initialize coordinate point for restaurant
+        let locationCoordinate = CLLocationCoordinate2DMake(CLLocationDegrees.init(latitude), CLLocationDegrees.init(longitude))
+
+        // 3) initialize region object using restaurant's coordinates
+        let restaurantRegion = MKCoordinateRegion(center: CLLocationCoordinate2DMake(latitude, longitude), span: MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1))
+
+        // 4) set region in mapView to be that of restaurants
+        mapView.setRegion(restaurantRegion, animated: true)
+        
         
         configureOutlets()
         // 11) purposely wait until last minute to configure this to explain to students delegation!
@@ -34,87 +54,71 @@ class RestaurantDetailViewController: UIViewController, MKMapViewDelegate, PostI
         mapView.delegate = self
     }
     
+    // Add image to MapView Annotation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toPostImageVC" {
             let postImageVC = segue.destination as! PostImageViewController
+            // NOTE: PLEASE FOLLOW LAB BEFORE ASKING FOR HELP ON THIS
             postImageVC.delegate = self
         }
     }
 
     
-    // ––––– TODO: Configure outlets :)
+    // ––––– LAB 6 TODO: Configure outlets :)
     func configureOutlets() {
         nameLabel.text = r.name
         reviewsLabel.text = String(r.reviews)
-        starImage.image = Stars.dict[r.rating]!
+        starImage.image = Stars.dict[r.rating]! // LOOK AT THIS LINE
         headerImage.af.setImage(withURL: r.imageURL!)
         
         // Extra: Add tint opacity to image to make text stand out
         let tintView = UIView()
         tintView.backgroundColor = UIColor(white: 0, alpha: 0.3) //change to your liking
-        tintView.frame = CGRect(x: 0, y: 0, width: headerImage.frame.width, height: headerImage.frame.height)
+        tintView.frame = CGRect(x: 0, y: 0, width: headerImage.frame.width, height: 20/100)
 
         headerImage.addSubview(tintView)
         
         // MARK: Lab 6 set region for map to be coordinates of restaurant
         // 1) get longitude and latitude from coordinates property
+        
+        
         let latitude = r.coordinates["latitude"]!
         let longitude = r.coordinates["longitude"]!
-        // test coordinates are being printed
-        print("COORDS: \(latitude), \(longitude)")
-        
+
         // 2) initialize coordinate point for restaurant
         let locationCoordinate = CLLocationCoordinate2DMake(CLLocationDegrees.init(latitude), CLLocationDegrees.init(longitude))
-        
+
         // 3) initialize region object using restaurant's coordinates
         let restaurantRegion = MKCoordinateRegion(center: CLLocationCoordinate2DMake(latitude, longitude), span: MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1))
-        
+
         // 4) set region in mapView to be that of restaurants
         mapView.setRegion(restaurantRegion, animated: true)
         
         // 5) instantiate annotation object to show pin on map
         let annotation = MKPointAnnotation()
-        
+
         // 6) set annotation's properties
         annotation.coordinate = locationCoordinate
         annotation.title = r.name
-        
+       
+
         // 7) drop pin on map using restaurant's coordinates
         mapView.addAnnotation(annotation)
+        
         
     }
     
     // MARK: 8) Configure annotation view using protocol method
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
-        let reuseID = "myAnnotationView"
         
-        print("mapView protocol called!")
-        
-        self.annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: reuseID)
-        
-        if (annotationView == nil){
-            // MARK: USE MKPinAnnotationView and NOT MKAnnotationView
-            annotationView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: reuseID)
-            annotationView?.canShowCallout = true
-            
-            // 9) Add info button to annotation view
-            let annotationViewButton = UIButton(frame: CGRect(x: 0, y: 0, width: 50, height: 50))
-            annotationViewButton.setImage(UIImage(named: "camera"), for: .normal)
-            
-            annotationView?.leftCalloutAccessoryView = annotationViewButton
-        }
-//        let imageView = annotationView?.leftCalloutAccessoryView as! UIImageView
-//
-//        imageView.image = UIImage(named: "camera")
-        
-        return annotationView
+        return mapView.dequeueReusableAnnotationView(withIdentifier: "removeMe")
         
     }
     
     // MARK: 12) action to execute when user taps annotation views accessory buttons
     func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
         // 14) performSegue to PostImageVC
-        self.performSegue(withIdentifier: "toPostImageVC", sender: nil)
+        
     }
     
     // MARK: 19) Conform to PostImageViewDelegate protocol
@@ -124,9 +128,70 @@ class RestaurantDetailViewController: UIViewController, MKMapViewDelegate, PostI
         annotationViewButton.setImage(image, for: .normal)
         
         self.annotationView?.leftCalloutAccessoryView = annotationViewButton
+
     }
     
-    @IBAction func unwind(_ seg: UIStoryboardSegue) {
+    
+    
+    
+    
+    // Unwind segue after user finishes uploading image for map annotation
+    
+    var restaurantsArray: [Restaurant] = []
+    
+    @IBAction func randomize(_ sender: Any) {
+        
+        
+        // 5) instantiate annotation object to show pin on map
+        let annotation = MKPointAnnotation()
+        
+        self.mapView.removeAnnotation(annotation)
+        
+        
+        API.getRestaurants() { (restaurants) in
+            guard let restaurants = restaurants else {
+                return
+            }
+            
+            let random = Int.random(in: 1..<15)
+            
+            
+            self.restaurantsArray = restaurants
+            
+            self.nameLabel.text = self.restaurantsArray[random].name
+            self.headerImage.af.setImage(withURL: self.restaurantsArray[random].imageURL!)
+            
+            
+            // do it here reviews
+           
+            
+            
+            let latitude = self.restaurantsArray[random].coordinates["latitude"]!
+            let longitude = self.restaurantsArray[random].coordinates["longitude"]!
+
+            // 2) initialize coordinate point for restaurant
+            let locationCoordinate = CLLocationCoordinate2DMake(CLLocationDegrees.init(latitude), CLLocationDegrees.init(longitude))
+
+            // 3) initialize region object using restaurant's coordinates
+            let restaurantRegion = MKCoordinateRegion(center: CLLocationCoordinate2DMake(latitude, longitude), span: MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1))
+
+            // 4) set region in mapView to be that of restaurants
+            self.mapView.setRegion(restaurantRegion, animated: true)
+            
+            // 6) set annotation's properties
+            annotation.coordinate = locationCoordinate
+            annotation.title = self.restaurantsArray[random].name
+
+            // 7) drop pin on map using restaurant's coordinates
+            self.mapView.addAnnotation(annotation)
+          
+        
+
+
         
     }
+    
+    
+
+}
 }
