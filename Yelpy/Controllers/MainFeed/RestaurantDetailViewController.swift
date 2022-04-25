@@ -160,8 +160,8 @@ class RestaurantDetailViewController: UIViewController, MKMapViewDelegate, PostI
             
             self.nameLabel.text = self.restaurantsArray[random].name
             self.headerImage.af.setImage(withURL: self.restaurantsArray[random].imageURL!)
-            
-            
+            self.starImage.image = Stars.dict[self.restaurantsArray[random].rating]!
+            self.reviewsLabel.text = String(self.restaurantsArray[random].reviews)
             // do it here reviews
            
             
