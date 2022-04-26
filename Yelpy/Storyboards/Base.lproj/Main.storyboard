@@ -475,40 +475,34 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Vue-LW-oqK">
-                                <rect key="frame" x="36" y="291" width="342" height="162"/>
+                                <rect key="frame" x="36" y="340" width="342" height="113"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Yelpy" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aL7-ka-91X">
-                                        <rect key="frame" x="0.0" y="0.0" width="342" height="41"/>
-                                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="34"/>
-                                        <color key="textColor" red="0.30588235289999999" green="0.32156862749999998" blue="0.31372549020000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Username" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1qg-6b-8eX">
-                                        <rect key="frame" x="0.0" y="49" width="342" height="23"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="342" height="23"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                         <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" smartInsertDeleteType="no" smartQuotesType="no" textContentType="username"/>
                                     </textField>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6S4-Ih-OQf">
-                                        <rect key="frame" x="0.0" y="80" width="342" height="1"/>
+                                        <rect key="frame" x="0.0" y="31" width="342" height="1"/>
                                         <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="1" id="O8b-ev-E9H"/>
                                         </constraints>
                                     </view>
                                     <textField opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6eP-IX-dt3">
-                                        <rect key="frame" x="0.0" y="89" width="342" height="22"/>
+                                        <rect key="frame" x="0.0" y="40" width="342" height="22"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                         <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
                                     </textField>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="C9c-L5-OrX">
-                                        <rect key="frame" x="0.0" y="119" width="342" height="1"/>
+                                        <rect key="frame" x="0.0" y="70" width="342" height="1"/>
                                         <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="1" id="iGH-g6-9Jz"/>
                                         </constraints>
                                     </view>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="mz3-7f-Dao">
-                                        <rect key="frame" x="0.0" y="128" width="342" height="34"/>
+                                        <rect key="frame" x="0.0" y="79" width="342" height="34"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZO1-k3-Gl7">
                                                 <rect key="frame" x="0.0" y="0.0" width="167" height="34"/>
@@ -536,20 +530,26 @@
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="mz3-7f-Dao" firstAttribute="centerX" secondItem="Vue-LW-oqK" secondAttribute="centerX" id="0d3-EK-ARd"/>
-                                    <constraint firstItem="aL7-ka-91X" firstAttribute="centerX" secondItem="Vue-LW-oqK" secondAttribute="centerX" id="3aV-zr-fL8"/>
                                     <constraint firstItem="6eP-IX-dt3" firstAttribute="centerX" secondItem="Vue-LW-oqK" secondAttribute="centerX" id="7FX-5c-IQV"/>
                                     <constraint firstItem="1qg-6b-8eX" firstAttribute="centerX" secondItem="Vue-LW-oqK" secondAttribute="centerX" id="UMy-1I-hZl"/>
                                     <constraint firstItem="6S4-Ih-OQf" firstAttribute="centerX" secondItem="Vue-LW-oqK" secondAttribute="centerX" id="s2U-Pa-Krd"/>
                                     <constraint firstItem="C9c-L5-OrX" firstAttribute="centerX" secondItem="Vue-LW-oqK" secondAttribute="centerX" id="taa-cq-y8m"/>
                                 </constraints>
                             </stackView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="Logo" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lud-Lw-g54">
+                                <rect key="frame" x="20" y="224" width="374" height="138"/>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="zPn-WF-Ecg"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="zPn-WF-Ecg" firstAttribute="trailing" secondItem="lud-Lw-g54" secondAttribute="trailing" constant="20" id="0as-JR-7Mp"/>
+                            <constraint firstItem="lud-Lw-g54" firstAttribute="top" secondItem="zPn-WF-Ecg" secondAttribute="top" constant="180" id="NJf-Jb-jM2"/>
                             <constraint firstItem="Vue-LW-oqK" firstAttribute="leading" secondItem="zPn-WF-Ecg" secondAttribute="leading" constant="36" id="eTK-hY-Vjf"/>
                             <constraint firstItem="Vue-LW-oqK" firstAttribute="bottom" secondItem="zPn-WF-Ecg" secondAttribute="centerY" id="nb5-Q6-hnC"/>
+                            <constraint firstItem="zPn-WF-Ecg" firstAttribute="bottom" secondItem="lud-Lw-g54" secondAttribute="bottom" constant="500" id="vQx-20-xrq"/>
                             <constraint firstItem="zPn-WF-Ecg" firstAttribute="trailing" secondItem="Vue-LW-oqK" secondAttribute="trailing" constant="36" id="vpU-Rt-pbh"/>
+                            <constraint firstItem="lud-Lw-g54" firstAttribute="leading" secondItem="zPn-WF-Ecg" secondAttribute="leading" constant="20" id="xIR-mp-l7x"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="iYR-iu-Bft"/>
@@ -561,7 +561,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ShO-x2-4QQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1468" y="471"/>
+            <point key="canvasLocation" x="1466.6666666666667" y="470.75892857142856"/>
         </scene>
         <!--Chat-->
         <scene sceneID="gYx-ev-UT7">
@@ -584,6 +584,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Logo" width="898" height="140"/>
         <image name="house" catalog="system" width="128" height="106"/>
         <image name="message" catalog="system" width="128" height="113"/>
         <systemColor name="systemBackgroundColor">
