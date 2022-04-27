@@ -112,7 +112,10 @@ class RestaurantsViewController: UIViewController, MKMapViewDelegate {
 //
 //    }
     
-
+    @IBAction func onLogout(_ sender: Any) {
+        NotificationCenter.default.post(name: NSNotification.Name("didLogout"), object: nil)
+    }
+    
 }
     
     

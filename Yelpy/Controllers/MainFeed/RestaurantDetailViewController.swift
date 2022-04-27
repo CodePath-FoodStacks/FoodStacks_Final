@@ -9,6 +9,8 @@
 import UIKit
 import AlamofireImage
 import MapKit
+import Lottie
+import SkeletonView
 
 // NOTE: Once you go through the lab this error will dissapear
 class RestaurantDetailViewController: UIViewController, MKMapViewDelegate, PostImageViewControllerDelegate {
@@ -184,14 +186,12 @@ class RestaurantDetailViewController: UIViewController, MKMapViewDelegate, PostI
 
             // 7) drop pin on map using restaurant's coordinates
             self.mapView.addAnnotation(annotation)
-          
-        
-
-
         
     }
-    
-    
 
 }
+    
+    @IBAction func onLogout(_ sender: Any) {
+        NotificationCenter.default.post(name: NSNotification.Name("didLogout"), object: nil)
+    }
 }

@@ -31,7 +31,19 @@
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                     </view>
-                    <navigationItem key="navigationItem" title="Restaurants" id="c9k-GF-lkD"/>
+                    <navigationItem key="navigationItem" title="Restaurants" id="c9k-GF-lkD">
+                        <barButtonItem key="leftBarButtonItem" title="Logout" style="plain" id="6Ms-fe-Usj">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="jVr-FQ-CkO">
+                                <rect key="frame" x="20" y="11" width="92" height="34.5"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="tinted" title="Logout"/>
+                                <connections>
+                                    <action selector="onLogout:" destination="BYZ-38-t0r" eventType="touchUpInside" id="rb6-I1-a2G"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="mapHome" destination="A5K-nJ-Tri" id="wzq-8M-wJe"/>
                     </connections>
@@ -48,11 +60,31 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0Fr-eq-Oka">
-                                <rect key="frame" x="0.0" y="44" width="414" height="179"/>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="XMv-cW-Db4">
+                                <rect key="frame" x="0.0" y="320" width="414" height="247"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </mapView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5SU-C0-X65">
+                                <rect key="frame" x="156" y="673" width="103" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Randomize"/>
+                                <connections>
+                                    <action selector="randomize:" destination="0n5-bX-7UJ" eventType="touchUpInside" id="eQS-gH-O72"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u4h-wz-8hq">
+                                <rect key="frame" x="36" y="622" width="137" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0Fr-eq-Oka">
+                                <rect key="frame" x="0.0" y="120" width="414" height="179"/>
                             </imageView>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="1mx-NY-0oQ">
-                                <rect key="frame" x="16" y="111" width="382" height="96"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="1mx-NY-0oQ">
+                                <rect key="frame" x="16" y="187" width="382" height="96"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Restaurant" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dqn-Ab-dxK" userLabel="Restaurant">
                                         <rect key="frame" x="0.0" y="0.0" width="382" height="48"/>
@@ -80,26 +112,15 @@
                                     </stackView>
                                 </subviews>
                             </stackView>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="XMv-cW-Db4">
-                                <rect key="frame" x="0.0" y="271" width="414" height="247"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </mapView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5SU-C0-X65">
-                                <rect key="frame" x="156" y="624" width="103" height="31"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qls-Vz-NYu">
+                                <rect key="frame" x="-1" y="44" width="70" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Randomize"/>
+                                <buttonConfiguration key="configuration" style="tinted" title="Logout"/>
                                 <connections>
-                                    <action selector="randomize:" destination="0n5-bX-7UJ" eventType="touchUpInside" id="eQS-gH-O72"/>
+                                    <action selector="onLogout:" destination="0n5-bX-7UJ" eventType="touchUpInside" id="ASl-Tz-9tZ"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u4h-wz-8hq">
-                                <rect key="frame" x="36" y="573" width="137" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="SdW-sT-Vfc"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -114,7 +135,9 @@
                             <constraint firstItem="0Fr-eq-Oka" firstAttribute="leading" secondItem="SdW-sT-Vfc" secondAttribute="leading" id="y1T-u9-IDu"/>
                         </constraints>
                     </view>
+                    <toolbarItems/>
                     <navigationItem key="navigationItem" id="CI7-NS-eq7"/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="headerImage" destination="0Fr-eq-Oka" id="zgz-tN-zhv"/>
                         <outlet property="mapView" destination="XMv-cW-Db4" id="sFi-w9-WOA"/>
@@ -122,62 +145,11 @@
                         <outlet property="newRes" destination="u4h-wz-8hq" id="jmk-yE-om4"/>
                         <outlet property="reviewsLabel" destination="aVI-DD-nyn" id="9Pf-Pk-UsN"/>
                         <outlet property="starImage" destination="XMA-8K-nQu" id="sPC-18-TLL"/>
-                        <segue destination="3Z8-Oa-TAz" kind="show" identifier="toPostImageVC" id="9Ic-J2-Eva"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pkB-Je-dWJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4503" y="471"/>
-        </scene>
-        <!--Post Image View Controller-->
-        <scene sceneID="Ch2-wy-hbZ">
-            <objects>
-                <viewController id="3Z8-Oa-TAz" customClass="PostImageViewController" customModule="Yelpy" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Jmb-MZ-f4z">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="AHs-ue-E21">
-                                <rect key="frame" x="87" y="53" width="240" height="240"/>
-                                <color key="backgroundColor" red="0.34901960780000002" green="0.80392156859999997" blue="0.56470588239999997" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="240" id="8lA-Bs-8L5"/>
-                                    <constraint firstAttribute="height" constant="240" id="osc-wN-sKe"/>
-                                </constraints>
-                            </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="occ-D2-CiQ">
-                                <rect key="frame" x="8" y="336" width="398" height="39"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
-                                <state key="normal" title="Finish Posting Image">
-                                    <color key="titleColor" red="0.34901960780000002" green="0.80392156859999997" blue="0.56470588239999997" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="onFinishPosting:" destination="3Z8-Oa-TAz" eventType="touchUpInside" id="2xp-ig-ibi"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="zuO-il-CKn"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="zuO-il-CKn" firstAttribute="trailing" secondItem="occ-D2-CiQ" secondAttribute="trailing" constant="8" id="DgF-Bg-FbI"/>
-                            <constraint firstItem="occ-D2-CiQ" firstAttribute="leading" secondItem="zuO-il-CKn" secondAttribute="leading" constant="8" id="H0z-OL-059"/>
-                            <constraint firstItem="AHs-ue-E21" firstAttribute="top" secondItem="zuO-il-CKn" secondAttribute="top" constant="53" id="SwY-aR-JMT"/>
-                            <constraint firstItem="occ-D2-CiQ" firstAttribute="top" secondItem="AHs-ue-E21" secondAttribute="bottom" constant="43" id="ZEp-zl-efe"/>
-                            <constraint firstItem="AHs-ue-E21" firstAttribute="leading" secondItem="zuO-il-CKn" secondAttribute="leading" constant="87" id="bjP-d1-Lli"/>
-                            <constraint firstItem="zuO-il-CKn" firstAttribute="trailing" secondItem="AHs-ue-E21" secondAttribute="trailing" constant="87" id="qHS-21-B1e"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" id="DtS-D7-Gm4"/>
-                    <nil key="simulatedTopBarMetrics"/>
-                    <connections>
-                        <outlet property="selectedImageView" destination="AHs-ue-E21" id="Gfv-Bc-nF9"/>
-                        <segue destination="Pf0-ug-Mvh" kind="unwind" identifier="unwindToDetail" unwindAction="unwind:" id="onY-hf-lZr"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="eYi-QB-xka" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <exit id="Pf0-ug-Mvh" userLabel="Exit" sceneMemberID="exit"/>
-            </objects>
-            <point key="canvasLocation" x="5313" y="471"/>
         </scene>
         <!--Home Feed-->
         <scene sceneID="gBK-qK-u7f">
