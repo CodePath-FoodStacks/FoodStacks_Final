@@ -26,6 +26,9 @@ class RestaurantDetailViewController: UIViewController, MKMapViewDelegate, PostI
     // LAB 6: Connect MapView + Add annotation view
     @IBOutlet weak var mapView: MKMapView!
     var annotationView: MKAnnotationView!
+
+    var restaurantsArray: [Restaurant] = []
+    let yelpRefresh = UIRefreshControl()
     
     // Initialize restaurant variable
     var r: Restaurant!
@@ -34,6 +37,7 @@ class RestaurantDetailViewController: UIViewController, MKMapViewDelegate, PostI
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        getAPIData()
         
         let latitude = r.coordinates["latitude"]!
         let longitude = r.coordinates["longitude"]!
@@ -53,6 +57,34 @@ class RestaurantDetailViewController: UIViewController, MKMapViewDelegate, PostI
         // step 10) is running the app
         mapView.delegate = self
     }
+    
+    
+    @objc func getAPIData() {
+       
+        API.getRestaurants() { (restaurants) in
+            guard let restaurants = restaurants else {
+                return
+            }
+            
+            self.restaurantsArray = restaurants
+            //self.filteredRestaurants = restaurants
+           // self.tableView.reloadData()
+            
+            // MARK: LAB6 Checking for coordinates
+//            for rest in self.restaurantsArray {
+//                 print("COORDINATES", rest.coordinates)
+//             }
+            
+//            Timer.scheduledTimer(timeInterval: 2.0, target: self, selector: #selector(self.stopAnimations), userInfo: nil, repeats: false)
+        
+            self.yelpRefresh.endRefreshing()
+            
+        }
+    }
+
+    
+    
+    
     
     // Add image to MapView Annotation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -137,7 +169,7 @@ class RestaurantDetailViewController: UIViewController, MKMapViewDelegate, PostI
     
     // Unwind segue after user finishes uploading image for map annotation
     
-    var restaurantsArray: [Restaurant] = []
+    //var restaurantsArray: [Restaurant] = []
     
     @IBAction func randomize(_ sender: Any) {
         
