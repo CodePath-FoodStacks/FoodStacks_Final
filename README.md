@@ -38,18 +38,18 @@ iOS app to help users decide where to eat out.
 * -[ ] Location range
     * -[ ] Default range 10-15 miles from user location
 * -[ ] Screen that displays decided place to eat
-    * -[ ] Location
-    * -[ ] Contact info
+    * -[x] Location (latitude and longtitude)
+    * -[x] Contact info
     * -[ ] Operating Hours
 
 **Optional Nice-to-have Stories**
 
 * -[ ] Information of Restuarants
     * -[ ] Operating Hours
-    * -[ ] Photos
-    * -[ ] Location
-    * -[ ] Contact info
-    * -[ ] Reviews(?)
+    * -[x] Photos
+    * -[x] Location
+    * -[x] Contact info
+    * -[x] Reviews(?)
         * -[ ] Likes
         * -[ ] Feedback
 * -[ ] Filter Options
