@@ -23,6 +23,10 @@ class RestaurantDetailViewController: UIViewController, MKMapViewDelegate, PostI
     @IBOutlet weak var starImage: UIImageView!
     @IBOutlet weak var reviewsLabel: UILabel!
     @IBOutlet weak var newRes: UILabel!
+    @IBOutlet weak var categoryLabel: UILabel!
+    @IBOutlet weak var phoneNumberLabel: UILabel!
+    @IBOutlet weak var hourLabel: UILabel!
+    @IBOutlet weak var addressLabel: UILabel!
     
     
     // LAB 6: Connect MapView + Add annotation view
@@ -35,6 +39,17 @@ class RestaurantDetailViewController: UIViewController, MKMapViewDelegate, PostI
     // Initialize restaurant variable
     var r: Restaurant!
     
+    //    var isClosed: Bool = false {
+    //        didSet{
+    //            if isClosed{
+    //                hoursLabel.text = "Closed"
+    //                hoursLabel.textColor = UIColor(red: 148/255, green: 23/255, blue: 147/255, alpha: 1)
+    //            } else {
+    //                hoursLabel.text = "Open Now"
+    //                hoursLabel.textColor = UIColor(red: 66/255, green: 66/255, blue: 66/255, alpha: 1)
+    //            }
+    //        }
+    //    }
         
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,6 +58,7 @@ class RestaurantDetailViewController: UIViewController, MKMapViewDelegate, PostI
         
         let latitude = r.coordinates["latitude"]!
         let longitude = r.coordinates["longitude"]!
+        print("Hello, \(latitude)!")
 
         // 2) initialize coordinate point for restaurant
         let locationCoordinate = CLLocationCoordinate2DMake(CLLocationDegrees.init(latitude), CLLocationDegrees.init(longitude))
@@ -101,9 +117,12 @@ class RestaurantDetailViewController: UIViewController, MKMapViewDelegate, PostI
     // ––––– LAB 6 TODO: Configure outlets :)
     func configureOutlets() {
         nameLabel.text = r.name
-        reviewsLabel.text = String(r.reviews)
+        reviewsLabel.text = String(r.reviews) + " reviews"
         starImage.image = Stars.dict[r.rating]! // LOOK AT THIS LINE
         headerImage.af.setImage(withURL: r.imageURL!)
+        phoneNumberLabel.text = r.phone
+        categoryLabel.text = r.mainCategory
+        addressLabel.text = String(r.coordinates["latitude"]!)
         
         // Extra: Add tint opacity to image to make text stand out
         let tintView = UIView()
@@ -195,14 +214,18 @@ class RestaurantDetailViewController: UIViewController, MKMapViewDelegate, PostI
             self.nameLabel.text = self.restaurantsArray[random].name
             self.headerImage.af.setImage(withURL: self.restaurantsArray[random].imageURL!)
             self.starImage.image = Stars.dict[self.restaurantsArray[random].rating]!
-            self.reviewsLabel.text = String(self.restaurantsArray[random].reviews)
+            self.reviewsLabel.text = String(self.restaurantsArray[random].reviews) + " reviews"
             // do it here reviews
-           
-            
+            self.phoneNumberLabel.text = String(self.restaurantsArray[random].phone)
+            self.categoryLabel.text = String(self.restaurantsArray[random].mainCategory)
+//            self.addressLabel.text = self.restaurantsArray[random].address
+//            self.isClosed = restaurants[random].is_closed ?? false
             
             let latitude = self.restaurantsArray[random].coordinates["latitude"]!
             let longitude = self.restaurantsArray[random].coordinates["longitude"]!
 
+            self.addressLabel.text = String(longitude)
+            
             // 2) initialize coordinate point for restaurant
             let locationCoordinate = CLLocationCoordinate2DMake(CLLocationDegrees.init(latitude), CLLocationDegrees.init(longitude))
 
