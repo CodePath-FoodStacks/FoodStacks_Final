@@ -122,7 +122,7 @@ class RestaurantDetailViewController: UIViewController, MKMapViewDelegate, PostI
         headerImage.af.setImage(withURL: r.imageURL!)
         phoneNumberLabel.text = r.phone
         categoryLabel.text = r.mainCategory
-        addressLabel.text = String(r.coordinates["latitude"]!)
+        addressLabel.text = "longitude: " + String(r.coordinates["longitude"]!) + " Latitude: " + String(r.coordinates["latitude"]!)
         
         // Extra: Add tint opacity to image to make text stand out
         let tintView = UIView()
@@ -224,7 +224,7 @@ class RestaurantDetailViewController: UIViewController, MKMapViewDelegate, PostI
             let latitude = self.restaurantsArray[random].coordinates["latitude"]!
             let longitude = self.restaurantsArray[random].coordinates["longitude"]!
 
-            self.addressLabel.text = String(longitude)
+            self.addressLabel.text = "Longitude: " + String(longitude) + " Latitude: " + String(latitude)
             
             // 2) initialize coordinate point for restaurant
             let locationCoordinate = CLLocationCoordinate2DMake(CLLocationDegrees.init(latitude), CLLocationDegrees.init(longitude))
