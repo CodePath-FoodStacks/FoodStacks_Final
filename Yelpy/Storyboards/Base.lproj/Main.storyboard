@@ -238,7 +238,7 @@
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Ifd-K0-z93">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
                         <segue destination="Cfe-QL-TZH" kind="relationship" relationship="viewControllers" id="A2V-Kl-D29"/>
@@ -549,11 +549,11 @@
             </objects>
             <point key="canvasLocation" x="3758" y="1205"/>
         </scene>
-        <!--Item-->
+        <!--Filter-->
         <scene sceneID="7id-TE-bnv">
             <objects>
                 <navigationController id="zo5-ob-5hu" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="9us-6l-Bvw"/>
+                    <tabBarItem key="tabBarItem" title="Filter" image="camera.filters" catalog="system" id="9us-6l-Bvw"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="FKk-KJ-4RQ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -569,6 +569,7 @@
     </scenes>
     <resources>
         <image name="Logo" width="898" height="140"/>
+        <image name="camera.filters" catalog="system" width="128" height="116"/>
         <image name="house" catalog="system" width="128" height="106"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
