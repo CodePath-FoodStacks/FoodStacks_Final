@@ -170,7 +170,7 @@ extension RestaurantsViewController: UITableViewDelegate, UITableViewDataSource 
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return filteredRestaurants.count
+        return filteredRestaurants.count - 18
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -196,19 +196,19 @@ extension RestaurantsViewController: UITableViewDelegate, UITableViewDataSource 
 
     // ––––– TODO: Send restaurant object to DetailViewController
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-      let cell = sender as! UITableViewCell
-      if let indexPath = tableView.indexPath(for: cell) {
+//      let cell = sender as! UITableViewCell
+//      if let indexPath = tableView.indexPath(for: cell) {
 
 
-            //let random = Int.random(in: 1..<15)
+            let random = Int.random(in: 1..<15)
 
 
-          let r = filteredRestaurants[indexPath.row]
+          let r = filteredRestaurants[random]
             let detailViewController = segue.destination as! RestaurantDetailViewController
             detailViewController.r = r
 
 
-    }
+    //}
 
  }
 }

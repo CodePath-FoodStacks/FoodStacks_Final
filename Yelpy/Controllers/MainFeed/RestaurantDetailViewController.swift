@@ -158,7 +158,7 @@ class RestaurantDetailViewController: UIViewController, MKMapViewDelegate, PostI
         // 7) drop pin on map using restaurant's coordinates
         mapView.addAnnotation(annotation)
         
-        
+         
     }
     
     // MARK: 8) Configure annotation view using protocol method
