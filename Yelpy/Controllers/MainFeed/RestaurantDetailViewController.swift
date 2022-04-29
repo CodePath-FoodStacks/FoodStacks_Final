@@ -12,6 +12,8 @@ import MapKit
 import Lottie
 import SkeletonView
 
+let annotation = MKPointAnnotation()
+
 // NOTE: Once you go through the lab this error will dissapear
 class RestaurantDetailViewController: UIViewController, MKMapViewDelegate, PostImageViewControllerDelegate {
     
@@ -101,10 +103,6 @@ class RestaurantDetailViewController: UIViewController, MKMapViewDelegate, PostI
         }
     }
 
-    
-    
-    
-    
     // Add image to MapView Annotation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toPostImageVC" {
@@ -150,7 +148,7 @@ class RestaurantDetailViewController: UIViewController, MKMapViewDelegate, PostI
         mapView.setRegion(restaurantRegion, animated: true)
         
         // 5) instantiate annotation object to show pin on map
-        let annotation = MKPointAnnotation()
+        //let annotation = MKPointAnnotation()
 
         // 6) set annotation's properties
         annotation.coordinate = locationCoordinate
@@ -212,7 +210,7 @@ class RestaurantDetailViewController: UIViewController, MKMapViewDelegate, PostI
         
         
         // 5) instantiate annotation object to show pin on map
-        let annotation = MKPointAnnotation()
+        //let annotation = MKPointAnnotation()
         
         self.mapView.removeAnnotation(annotation)
         
@@ -258,6 +256,8 @@ class RestaurantDetailViewController: UIViewController, MKMapViewDelegate, PostI
 
             // 7) drop pin on map using restaurant's coordinates
             self.mapView.addAnnotation(annotation)
+            
+            
             
             // MARK: 8) Configure annotation view using protocol method
             func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
