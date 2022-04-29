@@ -354,25 +354,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <searchBar contentMode="redraw" placeholder="Search Restaurants" translatesAutoresizingMaskIntoConstraints="NO" id="qd4-ad-B6p">
-                                <rect key="frame" x="0.0" y="56" width="414" height="51"/>
-                                <textInputTraits key="textInputTraits"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="skeletonCornerRadius">
-                                        <real key="value" value="1"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </searchBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="VMm-ic-a29">
-                                <rect key="frame" x="0.0" y="107" width="414" height="735"/>
+                                <rect key="frame" x="0.0" y="384" width="414" height="458"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="RestaurantCell" id="9Zs-qG-nAz" customClass="RestaurantCell" customModule="Yelpy" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="44.5" width="414" height="172.5"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="RestaurantCell" rowHeight="227" id="9Zs-qG-nAz" customClass="RestaurantCell" customModule="Yelpy" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="44.5" width="414" height="227"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="9Zs-qG-nAz" id="wna-fS-6eZ">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="172.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="227"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0dt-po-75e">
@@ -492,17 +482,24 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </tableView>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="6iz-Hc-ASG">
+                                <rect key="frame" x="45" y="102" width="307" height="245"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="245" id="8M8-Gs-p8k"/>
+                                </constraints>
+                            </mapView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6zH-yx-FmR"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="VMm-ic-a29" firstAttribute="top" secondItem="qd4-ad-B6p" secondAttribute="bottom" id="FIf-gL-Pfk"/>
+                            <constraint firstItem="6iz-Hc-ASG" firstAttribute="top" secondItem="6zH-yx-FmR" secondAttribute="top" constant="46" id="9OI-1f-lBy"/>
                             <constraint firstItem="VMm-ic-a29" firstAttribute="leading" secondItem="6zH-yx-FmR" secondAttribute="leading" id="J0v-p1-eKH"/>
-                            <constraint firstItem="qd4-ad-B6p" firstAttribute="leading" secondItem="6zH-yx-FmR" secondAttribute="leading" id="Uca-Fv-cTp"/>
-                            <constraint firstItem="qd4-ad-B6p" firstAttribute="trailing" secondItem="6zH-yx-FmR" secondAttribute="trailing" id="ZR7-ZQ-995"/>
+                            <constraint firstItem="VMm-ic-a29" firstAttribute="top" secondItem="6iz-Hc-ASG" secondAttribute="bottom" constant="37" id="JgQ-gL-9qS"/>
+                            <constraint firstItem="6zH-yx-FmR" firstAttribute="trailing" secondItem="6iz-Hc-ASG" secondAttribute="trailing" constant="62" id="Mrk-wk-cac"/>
+                            <constraint firstItem="6iz-Hc-ASG" firstAttribute="leading" secondItem="6zH-yx-FmR" secondAttribute="leading" constant="45" id="Pjj-hI-R0m"/>
+                            <constraint firstItem="VMm-ic-a29" firstAttribute="leading" secondItem="6zH-yx-FmR" secondAttribute="leading" id="Qxw-w4-wwc"/>
                             <constraint firstAttribute="bottom" secondItem="VMm-ic-a29" secondAttribute="bottom" id="nUc-0B-Lak"/>
                             <constraint firstItem="VMm-ic-a29" firstAttribute="trailing" secondItem="6zH-yx-FmR" secondAttribute="trailing" id="sKx-z9-9VK"/>
-                            <constraint firstItem="qd4-ad-B6p" firstAttribute="top" secondItem="8ZT-BR-CmR" secondAttribute="topMargin" id="x4V-FM-oLs"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
@@ -513,13 +510,13 @@
                     </view>
                     <navigationItem key="navigationItem" title="Restaurants" id="b88-cR-L8S"/>
                     <connections>
-                        <outlet property="searchBar" destination="qd4-ad-B6p" id="gXv-eO-cGo"/>
+                        <outlet property="mapView" destination="6iz-Hc-ASG" id="rSN-R4-KhM"/>
                         <outlet property="tableView" destination="VMm-ic-a29" id="9Mg-I8-dW2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DGZ-pH-DyE" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3759" y="471"/>
+            <point key="canvasLocation" x="3757.971014492754" y="470.75892857142856"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="FxM-Bv-Krg">

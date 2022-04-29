@@ -10,6 +10,7 @@ import UIKit
 import AlamofireImage
 import Lottie
 import SkeletonView
+import MapKit
 
 class RestaurantsViewController: UIViewController {
         
@@ -17,7 +18,10 @@ class RestaurantsViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     var restaurantsArray: [Restaurant] = []
     
-    @IBOutlet weak var searchBar: UISearchBar!
+    
+    @IBOutlet weak var mapView: MKMapView!
+    
+
     var filteredRestaurants: [Restaurant] = []
     
     // Variable inits
@@ -37,7 +41,7 @@ class RestaurantsViewController: UIViewController {
         tableView.dataSource = self
         
         // Search Bar delegate
-        searchBar.delegate = self
+        //searchBar.delegate = self
     
     
         // Get Data from API
@@ -45,6 +49,15 @@ class RestaurantsViewController: UIViewController {
         
         yelpRefresh.addTarget(self, action: #selector(getAPIData), for: .valueChanged)
         tableView.refreshControl = yelpRefresh
+        
+        let latitude = 34.052235
+        let longitude = -118.243683
+        
+        let restaurantRegion = MKCoordinateRegion(center: CLLocationCoordinate2DMake(latitude, longitude), span: MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1))
+
+        // 4) set region in mapView to be that of restaurants
+        self.mapView.setRegion(restaurantRegion, animated: true)
+    
     }
     
     
@@ -162,40 +175,40 @@ extension RestaurantsViewController: UITableViewDelegate, UITableViewDataSource 
 }
 
 
-// ––––– UI SearchBar Functionality –––––
-extension RestaurantsViewController: UISearchBarDelegate {
-    
-    // Search bar functionality
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        if searchText != "" {
-            filteredRestaurants = restaurantsArray.filter { (r: Restaurant) -> Bool in
-              return r.name.lowercased().contains(searchText.lowercased())
-            }
-        }
-        else {
-            filteredRestaurants = restaurantsArray
-        }
-        tableView.reloadData()
-    }
-
-    
-    // Show Cancel button when typing
-    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
-       self.searchBar.showsCancelButton = true
-    }
-       
-    // Logic for searchBar cancel button
-    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-       searchBar.showsCancelButton = false // remove cancel button
-       searchBar.text = "" // reset search text
-       searchBar.resignFirstResponder() // remove keyboard
-       filteredRestaurants = restaurantsArray // reset results to display
-       tableView.reloadData()
-    }
-    
-    
-    
-}
+//// ––––– UI SearchBar Functionality –––––
+//extension RestaurantsViewController: UISearchBarDelegate {
+//
+//    // Search bar functionality
+////    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+////        if searchText != "" {
+////            filteredRestaurants = restaurantsArray.filter { (r: Restaurant) -> Bool in
+////              return r.name.lowercased().contains(searchText.lowercased())
+////            }
+////        }
+////        else {
+////            filteredRestaurants = restaurantsArray
+////        }
+////        tableView.reloadData()
+////    }
+//
+//
+//    // Show Cancel button when typing
+////    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+////       self.searchBar.showsCancelButton = true
+////    }
+//
+//    // Logic for searchBar cancel button
+////    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+////       searchBar.showsCancelButton = false // remove cancel button
+////       searchBar.text = "" // reset search text
+////       searchBar.resignFirstResponder() // remove keyboard
+////       filteredRestaurants = restaurantsArray // reset results to display
+////       tableView.reloadData()
+////    }
+//
+//
+//
+//}
 
 
 
