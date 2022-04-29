@@ -106,13 +106,13 @@
 			path = MainFeed;
 			sourceTree = "<group>";
 		};
-		BB364E8624AD99A9003EA679 /* Chat */ = {
+		BB364E8624AD99A9003EA679 /* Filter */ = {
 			isa = PBXGroup;
 			children = (
 				BB364E7924AD5F64003EA679 /* LoginViewController.swift */,
 				BB364E7B24AD6883003EA679 /* ChatViewController.swift */,
 			);
-			path = Chat;
+			path = Filter;
 			sourceTree = "<group>";
 		};
 		BB47B3AB247739720029FFF6 /* Network */ = {
@@ -126,7 +126,7 @@
 		BB47B3AC247739890029FFF6 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				BB364E8624AD99A9003EA679 /* Chat */,
+				BB364E8624AD99A9003EA679 /* Filter */,
 				BB364E8524AD999A003EA679 /* MainFeed */,
 			);
 			path = Controllers;
