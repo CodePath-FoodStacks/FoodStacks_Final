@@ -18,19 +18,16 @@ class RestaurantsViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     var restaurantsArray: [Restaurant] = []
     
-    
     @IBOutlet weak var mapView: MKMapView!
-    
 
     var filteredRestaurants: [Restaurant] = []
-    
+
     // Variable inits
     var animationView: AnimationView?
     var refresh = true
     
     let yelpRefresh = UIRefreshControl()
     
-
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -42,7 +39,6 @@ class RestaurantsViewController: UIViewController {
         
         // Search Bar delegate
         //searchBar.delegate = self
-    
     
         // Get Data from API
         getAPIData()
@@ -61,6 +57,7 @@ class RestaurantsViewController: UIViewController {
     }
     
     
+
     @objc func getAPIData() {
        
         API.getRestaurants() { (restaurants) in
@@ -83,7 +80,10 @@ class RestaurantsViewController: UIViewController {
             
         }
     }
-    
+
+    @IBAction func onLogout(_ sender: Any) {
+        NotificationCenter.default.post(name: NSNotification.Name("didLogout"), object: nil)
+    }
     
 
 }
