@@ -21,45 +21,21 @@ class PostImageViewController: UIViewController, UIImagePickerControllerDelegate
     // MARK: LAB 6 TODO: Add delegate for the protocol you created
     weak var delegate: PostImageViewControllerDelegate!
 
-       
-
-
-
        override func viewDidLoad() {
 
            super.viewDidLoad()
 
-
-
            createImagePicker()
-
            navigationController?.navigationBar.isHidden = true
-
-           
-
        }
-
-       
 
        // Unwind back to Restaurant Detail after uploading image
-
        @IBAction func onFinishPosting(_ sender: Any) {
-
            performSegue(withIdentifier: "unwindToDetail", sender: self)
 
-           
-
            // MARK: LAB 6 TODO: Pass image through protocol method
-
-           
-
            delegate.imageSelected(controller: self, image: self.selectedImageView.image!)
-
        }
-
-       
-
-       
 
        // MARK: LAB 6 TODO: ImagePicker Delegate Methods
 
@@ -69,12 +45,7 @@ class PostImageViewController: UIViewController, UIImagePickerControllerDelegate
 
            let originalImage = info[.originalImage] as! UIImage
 
-
-
            self.selectedImageView.image = originalImage
-
-           
-
            dismiss(animated: true, completion: nil)
 
        }
