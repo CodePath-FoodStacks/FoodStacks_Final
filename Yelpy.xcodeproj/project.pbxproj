@@ -25,6 +25,7 @@
 		BBEBF110247738A50044AFE0 /* RestaurantsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBEBF10F247738A50044AFE0 /* RestaurantsViewController.swift */; };
 		BBEBF115247738A50044AFE0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BBEBF114247738A50044AFE0 /* Assets.xcassets */; };
 		BBEBF118247738A50044AFE0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BBEBF116247738A50044AFE0 /* LaunchScreen.storyboard */; };
+		C2E97896281C9F20006F3C08 /* FilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2E97895281C9F20006F3C08 /* FilterViewController.swift */; };
 		CE517AC724B6F65200268657 /* PostImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE517AC624B6F65200268657 /* PostImageViewController.swift */; };
 		DEB0D3CBF2C6E48DC3500274 /* Pods_Yelpy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F45387EF0BCD4FD0EAD369F /* Pods_Yelpy.framework */; };
 /* End PBXBuildFile section */
@@ -52,6 +53,7 @@
 		BBEBF114247738A50044AFE0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BBEBF117247738A50044AFE0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BBEBF119247738A50044AFE0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C2E97895281C9F20006F3C08 /* FilterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterViewController.swift; sourceTree = "<group>"; };
 		CE517AC424B6DD4A00268657 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		CE517AC624B6F65200268657 /* PostImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostImageViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -111,6 +113,7 @@
 			children = (
 				BB364E7924AD5F64003EA679 /* LoginViewController.swift */,
 				BB364E7B24AD6883003EA679 /* ChatViewController.swift */,
+				C2E97895281C9F20006F3C08 /* FilterViewController.swift */,
 			);
 			path = Filter;
 			sourceTree = "<group>";
@@ -312,6 +315,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C2E97896281C9F20006F3C08 /* FilterViewController.swift in Sources */,
 				BB47B3B5247753B80029FFF6 /* RestaurantCell.swift in Sources */,
 				BB30BD30247E48E800C383BB /* YelpStars.swift in Sources */,
 				BB364E7C24AD6883003EA679 /* ChatViewController.swift in Sources */,
