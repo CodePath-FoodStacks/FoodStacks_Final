@@ -488,17 +488,27 @@
                                     <constraint firstAttribute="height" constant="245" id="8M8-Gs-p8k"/>
                                 </constraints>
                             </mapView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your Local Area" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="roU-3f-ksS">
+                                <rect key="frame" x="148" y="56" width="118" height="36"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6zH-yx-FmR"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="6iz-Hc-ASG" firstAttribute="top" secondItem="6zH-yx-FmR" secondAttribute="top" constant="46" id="9OI-1f-lBy"/>
+                            <constraint firstItem="roU-3f-ksS" firstAttribute="top" secondItem="6zH-yx-FmR" secondAttribute="top" id="FrF-tj-Qgd"/>
                             <constraint firstItem="VMm-ic-a29" firstAttribute="leading" secondItem="6zH-yx-FmR" secondAttribute="leading" id="J0v-p1-eKH"/>
                             <constraint firstItem="VMm-ic-a29" firstAttribute="top" secondItem="6iz-Hc-ASG" secondAttribute="bottom" constant="37" id="JgQ-gL-9qS"/>
                             <constraint firstItem="6zH-yx-FmR" firstAttribute="trailing" secondItem="6iz-Hc-ASG" secondAttribute="trailing" constant="62" id="Mrk-wk-cac"/>
                             <constraint firstItem="6iz-Hc-ASG" firstAttribute="leading" secondItem="6zH-yx-FmR" secondAttribute="leading" constant="45" id="Pjj-hI-R0m"/>
                             <constraint firstItem="VMm-ic-a29" firstAttribute="leading" secondItem="6zH-yx-FmR" secondAttribute="leading" id="Qxw-w4-wwc"/>
+                            <constraint firstItem="roU-3f-ksS" firstAttribute="centerX" secondItem="VMm-ic-a29" secondAttribute="centerX" id="RgY-2c-XFt"/>
                             <constraint firstAttribute="bottom" secondItem="VMm-ic-a29" secondAttribute="bottom" id="nUc-0B-Lak"/>
+                            <constraint firstItem="6iz-Hc-ASG" firstAttribute="top" secondItem="roU-3f-ksS" secondAttribute="bottom" constant="10" id="oL1-Dh-fSL"/>
+                            <constraint firstItem="roU-3f-ksS" firstAttribute="leading" secondItem="6zH-yx-FmR" secondAttribute="leading" constant="148" id="rE9-hd-Yd4"/>
                             <constraint firstItem="VMm-ic-a29" firstAttribute="trailing" secondItem="6zH-yx-FmR" secondAttribute="trailing" id="sKx-z9-9VK"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
@@ -510,7 +520,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Restaurants" id="b88-cR-L8S">
                         <barButtonItem key="leftBarButtonItem" style="plain" id="E1S-zv-OmE">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="7Hn-6d-R89">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="7Hn-6d-R89">
                                 <rect key="frame" x="20" y="11" width="92" height="34.5"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
