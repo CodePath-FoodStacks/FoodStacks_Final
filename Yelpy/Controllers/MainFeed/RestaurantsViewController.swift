@@ -85,8 +85,35 @@ class RestaurantsViewController: UIViewController {
     }
     
     
+    
+    
+
+//    @IBAction func fetch(for segue: UIStoryboardSegue ,sender: Any) {
+//
+//    let fetchRandom = sender as! UIButton
+//
+//    self.performSegue(withIdentifier: "test1", sender: fetchRandom)
+//
+//        if segue.identifier == "test1" {
+//
+//        let random = Int.random(in: 1..<15)
+//        let r = filteredRestaurants[random]
+//                     let detailViewController = segue.destination as! RestaurantDetailViewController
+//                     detailViewController.r = r
+//
+//        }
+//
+//
+//
+//    }
+    
+    
 
 }
+
+
+
+
 
 extension RestaurantsViewController: SkeletonTableViewDataSource {
     
@@ -130,6 +157,11 @@ extension RestaurantsViewController: SkeletonTableViewDataSource {
         return "RestaurantCell"
     }
     
+    
+    
+    
+    
+    
 }
 
 // ––––– TableView Functionality –––––
@@ -161,54 +193,60 @@ extension RestaurantsViewController: UITableViewDelegate, UITableViewDataSource 
     }
     
     
+
     // ––––– TODO: Send restaurant object to DetailViewController
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let cell = sender as! UITableViewCell
-        if let indexPath = tableView.indexPath(for: cell) {
-            let r = filteredRestaurants[indexPath.row]
+      let cell = sender as! UITableViewCell
+      if let indexPath = tableView.indexPath(for: cell) {
+
+
+            //let random = Int.random(in: 1..<15)
+
+
+          let r = filteredRestaurants[indexPath.row]
             let detailViewController = segue.destination as! RestaurantDetailViewController
             detailViewController.r = r
-        }
-        
+
+
     }
-    
+
+ }
 }
 
+// ––––– UI SearchBar Functionality –––––
+extension RestaurantsViewController: UISearchBarDelegate {
 
-//// ––––– UI SearchBar Functionality –––––
-//extension RestaurantsViewController: UISearchBarDelegate {
-//
-//    // Search bar functionality
-////    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-////        if searchText != "" {
-////            filteredRestaurants = restaurantsArray.filter { (r: Restaurant) -> Bool in
-////              return r.name.lowercased().contains(searchText.lowercased())
-////            }
-////        }
-////        else {
-////            filteredRestaurants = restaurantsArray
-////        }
-////        tableView.reloadData()
-////    }
-//
-//
-//    // Show Cancel button when typing
-////    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
-////       self.searchBar.showsCancelButton = true
-////    }
-//
-//    // Logic for searchBar cancel button
-////    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-////       searchBar.showsCancelButton = false // remove cancel button
-////       searchBar.text = "" // reset search text
-////       searchBar.resignFirstResponder() // remove keyboard
-////       filteredRestaurants = restaurantsArray // reset results to display
-////       tableView.reloadData()
-////    }
-//
-//
-//
-//}
+    // Search bar functionality
+//    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+//        if searchText != "" {
+//            filteredRestaurants = restaurantsArray.filter { (r: Restaurant) -> Bool in
+//              return r.name.lowercased().contains(searchText.lowercased())
+//            }
+//        }
+//        else {
+//            filteredRestaurants = restaurantsArray
+//        }
+//        tableView.reloadData()
+//    }
+
+
+    // Show Cancel button when typing
+//    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+//       self.searchBar.showsCancelButton = true
+//    }
+
+    // Logic for searchBar cancel button
+//    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+//       searchBar.showsCancelButton = false // remove cancel button
+//       searchBar.text = "" // reset search text
+//       searchBar.resignFirstResponder() // remove keyboard
+//       filteredRestaurants = restaurantsArray // reset results to display
+//       tableView.reloadData()
+//    }
+
+
+
+}
 
 
 

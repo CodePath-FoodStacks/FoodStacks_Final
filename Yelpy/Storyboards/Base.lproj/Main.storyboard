@@ -355,8 +355,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="VMm-ic-a29">
-                                <rect key="frame" x="0.0" y="384" width="414" height="458"/>
+                                <rect key="frame" x="0.0" y="460" width="414" height="382"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="382" id="WXZ-Pv-Bti"/>
+                                </constraints>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="RestaurantCell" rowHeight="227" id="9Zs-qG-nAz" customClass="RestaurantCell" customModule="Yelpy" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="44.5" width="414" height="227"/>
@@ -448,6 +451,7 @@
                                                 <constraint firstItem="L3V-Dr-IA4" firstAttribute="leading" secondItem="wna-fS-6eZ" secondAttribute="leading" constant="8" id="Mef-G7-0bg"/>
                                                 <constraint firstItem="L3V-Dr-IA4" firstAttribute="top" secondItem="hFb-jq-eek" secondAttribute="bottom" constant="4" id="R6g-MK-Pjk"/>
                                                 <constraint firstItem="XP4-Mr-d6f" firstAttribute="top" secondItem="L3V-Dr-IA4" secondAttribute="bottom" constant="4" id="eW8-zx-3FR"/>
+                                                <constraint firstItem="0dt-po-75e" firstAttribute="top" secondItem="wna-fS-6eZ" secondAttribute="top" constant="20" symbolic="YES" id="gNc-39-0rO"/>
                                                 <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="XP4-Mr-d6f" secondAttribute="bottom" constant="20" id="ifx-Qb-g5g"/>
                                                 <constraint firstItem="oXV-dX-pue" firstAttribute="top" secondItem="wna-fS-6eZ" secondAttribute="top" constant="8" id="ldx-WF-ibq"/>
                                                 <constraint firstItem="hFb-jq-eek" firstAttribute="top" secondItem="0dt-po-75e" secondAttribute="bottom" constant="4" id="loV-Pm-XM5"/>
@@ -471,7 +475,7 @@
                                             <outlet property="restaurantImage" destination="oXV-dX-pue" id="xid-xD-WhB"/>
                                             <outlet property="reviewsLabel" destination="mmF-tj-J3h" id="6zq-BF-LnS"/>
                                             <outlet property="starsImage" destination="zhE-zf-1l8" id="Uiw-Pg-4b1"/>
-                                            <segue destination="0n5-bX-7UJ" kind="presentation" id="ZAQ-HT-3ID"/>
+                                            <segue destination="0n5-bX-7UJ" kind="presentation" id="UlU-qu-EEB"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -494,7 +498,6 @@
                         <constraints>
                             <constraint firstItem="6iz-Hc-ASG" firstAttribute="top" secondItem="6zH-yx-FmR" secondAttribute="top" constant="46" id="9OI-1f-lBy"/>
                             <constraint firstItem="VMm-ic-a29" firstAttribute="leading" secondItem="6zH-yx-FmR" secondAttribute="leading" id="J0v-p1-eKH"/>
-                            <constraint firstItem="VMm-ic-a29" firstAttribute="top" secondItem="6iz-Hc-ASG" secondAttribute="bottom" constant="37" id="JgQ-gL-9qS"/>
                             <constraint firstItem="6zH-yx-FmR" firstAttribute="trailing" secondItem="6iz-Hc-ASG" secondAttribute="trailing" constant="62" id="Mrk-wk-cac"/>
                             <constraint firstItem="6iz-Hc-ASG" firstAttribute="leading" secondItem="6zH-yx-FmR" secondAttribute="leading" constant="45" id="Pjj-hI-R0m"/>
                             <constraint firstItem="VMm-ic-a29" firstAttribute="leading" secondItem="6zH-yx-FmR" secondAttribute="leading" id="Qxw-w4-wwc"/>
