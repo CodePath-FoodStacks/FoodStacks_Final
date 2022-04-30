@@ -22,7 +22,7 @@ iOS app to help users decide where to eat out.
 ## Product Spec
 
 ### Build Progress
-<img src="http://g.recordit.co/KmtsZEAY3O.gif">
+<img src="http://g.recordit.co/V4ebrYAaSt.gif">
 
 ### 1. User Stories
 
