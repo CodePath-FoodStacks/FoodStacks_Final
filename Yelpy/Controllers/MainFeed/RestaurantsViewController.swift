@@ -125,7 +125,7 @@ extension RestaurantsViewController: SkeletonTableViewDataSource {
         animationView = .init(name: "4762-food-carousel")
         // Set the size to the frame
         //animationView!.frame = view.bounds
-        animationView!.frame = CGRect(x: view.frame.width / 3 , y: 156, width: 100, height: 100)
+        animationView!.frame = CGRect(x: view.frame.width / 3 , y: 156, width: 150, height: 1200)
 
         // fit the
         animationView!.contentMode = .scaleAspectFit
@@ -170,7 +170,7 @@ extension RestaurantsViewController: UITableViewDelegate, UITableViewDataSource 
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return filteredRestaurants.count
+        return filteredRestaurants.count - 18
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -196,19 +196,19 @@ extension RestaurantsViewController: UITableViewDelegate, UITableViewDataSource 
 
     // ––––– TODO: Send restaurant object to DetailViewController
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-      let cell = sender as! UITableViewCell
-      if let indexPath = tableView.indexPath(for: cell) {
+//      let cell = sender as! UITableViewCell
+//      if let indexPath = tableView.indexPath(for: cell) {
 
 
-            //let random = Int.random(in: 1..<15)
+            let random = Int.random(in: 1..<15)
 
 
-          let r = filteredRestaurants[indexPath.row]
+          let r = filteredRestaurants[random]
             let detailViewController = segue.destination as! RestaurantDetailViewController
             detailViewController.r = r
 
 
-    }
+    //}
 
  }
 }
